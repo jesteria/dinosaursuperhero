@@ -12,7 +12,6 @@
       section {
         max-width: 90%;
         margin: auto;
-        margin-top: 0.3em;
       }
       h1 {
         font-size: 2em;
@@ -71,15 +70,46 @@
       #experience dd:last-child {
         padding-bottom: 0;
       }
-      #skills ul {
+      .definition-group {
+        padding: 0 7em 0 4em;
+      }
+      .definition-box {
+        width: 50%;
+      }
+      .definition-box h2 {
+        text-align: center;
+      }
+      .definition-box dt, .definition-box dd {
+        display: inline;
+      }
+      .definition-box .long dt {
+        display: block;
+        padding: 0.25em;
+      }
+      .definition-box .long dd {
+        display: block;
+        margin-left: 1.5em;
+      }
+      .definition-box div {
+        padding-bottom: 0.75em;
+      }
+      .definition-box ul {
+        display: inline;
         padding-left: 0em;
         margin-top: 0.3em;
         margin-bottom: 0.75em;
         font-family: courier, "courier new", monospace;
       }
-      #skills li {
+      .definition-box li {
         display: inline;
         padding: 1em 1em 1em 0;
+      }
+      #skills {
+          float: left;
+      }
+      #education {
+          float: right;
+          width: 40%;
       }
     </style>
   </head>
@@ -91,8 +121,8 @@
       test automation seeks challenges requiring innovation and growth
       </p>
       <ul id="contact">
-        <li><strong>e:</strong> jesselondon@gmail.com</li>
-        <li><strong>p:</strong> (773) 451-5338</li>
+        <li><strong>e:</strong> jesse.london@gmail.com</li>
+        <li><strong>p:</strong> (312) 315-2771</li>
       </ul>
     </section>
     <hr>
@@ -101,83 +131,95 @@
       <dl>
         <dt>Software Engineer <span class="location">at Analyte Health</span> <span class="period">May 2011 - present</span></dt>
         <dd>
-          <p>Develop and maintain a medical and commercial Web platform, requiring a high level of internal and external integration, high availability and conformity, careful review and testing, and rapid bug address (Python/Django)</p>
-          <p>Participate in a cooperative, Agile team, which produces weekly version releases, and has made significant strides in addressing legacy code and technical debt, and in improving process through automation (e.g. of deployment, via Fabric) and code review</p>
+          <p>Develop a medical and commercial Web platform, which requires a high level of internal and external integration, high availability and conformity, careful review and testing, and rapid bug address (Python/Django). Participate in a cooperative, Agile team, which produces weekly releases, and has made significant strides in addressing legacy code and technical debt, and in improving process through code review and through automation (e.g. of deployment, via Fabric).</p>
+          <p>Led and co-led solutions to long-standing architectural issues, and championed code review and coding standards (reusability, legibility &amp; DRY).</p>
         </dd>
         <dt>Software Engineer <span class="location">at Leapfrog Online</span> <span class="period">Dec 2010 - May 2011</span></dt>
         <dd>
-          <p>Developed and maintained customer-facing Web platforms and internal software related to direct marketing, as well as a shared technological infrastructure (Python/Django)</p>
-          <p>Participated in a cooperative, Agile team, practicing peer review and multi-tiered automated testing</p>
+          <p>Developed customer-facing Web platforms and internal software related to direct marketing, as well as a shared technological infrastructure (Python/Django). Participated in a cooperative, Agile team, practicing peer review and multi-tiered automated testing.</p>
         </dd>
         <dt>Test Engineer <span class="location">at Leapfrog Online</span> <span class="period">Feb 2008 - Dec 2010</span></dt>
         <dd>
-          <p>Designed and developed automated, functional test suites for Web platforms related to direct marketing (Python)</p>
-          <p>Participated in the cooperative development of direct marketing platforms and their technological infrastructure (Python/Django)</p>
-          <p>Responsible for quality assurance, product release control, and helping to ensure live product uptime</p>
+          <p>Designed and developed automated, functional test suites for Web platforms related to direct marketing (Python). Participated in the cooperative development of direct marketing platforms and their technological infrastructure (Python/Django).</p>
+          <p>Responsible for quality assurance, product release control, and helping to ensure live product uptime.</p>
         </dd>
         <dt>Web Developer <span class="period">Jun 2006 - Jan 2008</span></dt>
         <dd>
-          <p>Designed and implemented Web sites for various professionals and organizations in the health services industry (PHP/MySQL/JavaScript)</p>
+          <p>Designed and implemented Web sites for various professionals and organizations in the health services industry (PHP/MySQL/JavaScript).</p>
         </dd>
         <dt>Linux Administrator <span class="location">University of Chicago Press (BiblioVault)</span> <span class="period">Oct 2006 - Aug 2007</span></dt>
         <dd>
-          <p>Responsible for the maintenance, upgrade, configuration and redeployment of LAMP Web servers (Debian running Apache, Embperl, MySQL, SSH, Samba, NFS and FTP) in support of the Web frontend and production backend of an academic electronic-publishing and -storage service</p>
-          <p>Investigated and extended infrastructure, to succeed in making the department independent of the IT-support services upon which it had previously relied</p>
+          <p>Responsible for the maintenance, upgrade and configuration of LAMP Web servers (Debian running Apache, Embperl, MySQL, SSH, Samba, NFS and FTP) in support of the Web frontend and production backend of an academic electronic-publishing and -storage service.</p>
+          <p>Investigated and extended infrastructure, to succeed in making the department independent of the IT-support services upon which it had previously relied.</p>
         </dd>
       </dl>
     </section>
-    <section id="skills">
-      <h2>Skills</h2>
-      <dl>
-        <dt>Programming languages</dt>
-        <dd>
-          <ul>
-            <li>Python</li>
-            <li>Ruby</li>
-            <li>PHP</li>
-            <li>Perl</li>
-            <li>C/C++</li>
-            <li>JavaScript</li>
-            <li>FORTRAN 77</li>
-          </ul>
-        </dd>
-        <dt>Databases</dt>
-        <dd>
-          <ul>
-            <li>PostgreSQL</li>
-            <li>MySQL</li>
-          </ul>
-        </dd>
-        <dt>Web servers</dt>
-        <dd>
-          <ul>
-            <li>Apache</li>
-            <li>Nginx</li>
-          </ul>
-        </dd>
-        <dt>Operating systems</dt>
-        <dd>
-          <ul>
-            <li>Linux</li>
-            <li>OS X</li>
-          </ul>
-        </dd>
-        <dt>Version control systems</dt>
-        <dd>
-          <ul>
-            <li>Mercurial</li>
-            <li>Git</li>
-            <li>Subversion</li>
-          </ul>
-        </dd>
-      </dl>
-    </section>
-    <section id="education">
-      <h2>Education</h2>
-      <dl>
-        <dt>University of Chicago</dt>
-        <dd><p>B.A. Physics <span class="period">June 2006</span></p></dd>
-      </dl>
-    </section>
+    <div class="definition-group">
+      <section id="skills" class="definition-box">
+        <h2>Skills</h2>
+        <dl>
+          <div class="long">
+            <dt>Programming languages</dt>
+            <dd>
+              <ul>
+                <li>Python</li>
+                <li>Ruby</li>
+                <li>PHP</li>
+                <li>Perl</li>
+                <li>JavaScript</li>
+                <li>C/C++</li>
+                <li>FORTRAN&nbsp;77</li>
+              </ul>
+            </dd>
+          </div>
+          <div>
+            <dt>Databases</dt>
+            <dd>
+              <ul>
+                <li>PostgreSQL</li>
+                <li>MySQL</li>
+              </ul>
+            </dd>
+          </div>
+          <div>
+            <dt>Web servers</dt>
+            <dd>
+              <ul>
+                <li>Apache</li>
+                <li>Nginx</li>
+              </ul>
+            </dd>
+          </div>
+          <div>
+            <dt>Operating systems</dt>
+            <dd>
+              <ul>
+                <li>Linux</li>
+                <li>OS X</li>
+              </ul>
+            </dd>
+          </div>
+          <div class="long">
+            <dt>Version control systems</dt>
+            <dd>
+              <ul>
+                <li>Mercurial</li>
+                <li>Git</li>
+                <li>Subversion</li>
+              </ul>
+            </dd>
+          </div>
+        </dl>
+      </section>
+      <section id="education" class="definition-box">
+        <h2>Education</h2>
+        <div class="long">
+          <dl>
+            <dt>University of Chicago</dt>
+            <dd>B.A. Physics <span class="period">June 2006</span></dd>
+          </dl>
+        </div>
+      </section>
+    </div>
   </body>
 </html>
