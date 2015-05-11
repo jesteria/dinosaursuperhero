@@ -11,7 +11,7 @@
       }
       section {
         max-width: 90%;
-        margin: auto;
+        margin: 1em auto;
       }
       h1 {
         font-size: 2em;
@@ -34,6 +34,9 @@
       .period {
         font-style: italic;
         padding-left: 1em;
+      }
+      #head {
+        margin-bottom: 0;
       }
       #head p {
         text-align: justify;
@@ -70,21 +73,17 @@
       #experience dd:last-child {
         padding-bottom: 0;
       }
-      .definition-group {
-        padding: 0 7em 0 4em;
-      }
-      .definition-box {
-        width: 50%;
-      }
-      .definition-box h2 {
-        text-align: center;
+      .definition-box .definition {
+        display: inline-block;
+        margin-right: 1em;
+        width: 45%;
       }
       .definition-box dt, .definition-box dd {
         display: inline;
       }
       .definition-box .long dt {
         display: block;
-        padding: 0.25em;
+        padding: 0 0 0.25em;
       }
       .definition-box .long dd {
         display: block;
@@ -103,13 +102,6 @@
       .definition-box li {
         display: inline;
         padding: 1em 1em 1em 0;
-      }
-      #skills {
-          float: left;
-      }
-      #education {
-          float: right;
-          width: 40%;
       }
     </style>
   </head>
@@ -168,82 +160,80 @@
         </dd>
       </dl>
     </section>
-    <div class="definition-group">
-      <section id="skills" class="definition-box">
-        <h2>Skills</h2>
-        <dl>
-          <div class="long">
-            <dt>Programming languages</dt>
-            <dd>
-              <ul>
-                <li>Python</li>
-                <li>Ruby</li>
-                <li>PHP</li>
-                <li>Perl</li>
-                <li>JavaScript</li>
-                <li>C/C++</li>
-                <li>FORTRAN&nbsp;77</li>
-              </ul>
-            </dd>
-          </div>
-          <div class="long">
-            <dt>Databases</dt>
-            <dd>
-              <ul>
-                <li>PostgreSQL</li>
-                <li>MySQL</li>
-                <li>DynamoDB</li>
-                <li>MongoDB</li>
-              </ul>
-            </dd>
-          </div>
-          <div>
-            <dt>Web servers</dt>
-            <dd>
-              <ul>
-                <li>Apache</li>
-                <li>Nginx</li>
-              </ul>
-            </dd>
-          </div>
-          <div>
-            <dt>Operating systems</dt>
-            <dd>
-              <ul>
-                <li>Linux</li>
-                <li>OS X</li>
-              </ul>
-            </dd>
-          </div>
-          <div class="long">
-            <dt>Version control systems</dt>
-            <dd>
-              <ul>
-                <li>Git</li>
-                <li>Mercurial</li>
-                <li>Subversion</li>
-              </ul>
-            </dd>
-          </div>
-          <div class="long">
-            <dt><em>Et cetera</em></dt>
-            <dd>
-              <ul>
-                <li>Amazon Web Services</li>
-              </ul>
-            </dd>
-          </div>
-        </dl>
-      </section>
-      <section id="education" class="definition-box">
-        <h2>Education</h2>
-        <div class="long">
-          <dl>
-            <dt>University of Chicago</dt>
-            <dd>B.A. Physics <span class="period">June 2006</span></dd>
-          </dl>
+    <section id="skills" class="definition-box">
+      <h2>Skills</h2>
+      <dl>
+        <div class="definition long">
+          <dt>Programming languages</dt>
+          <dd>
+            <ul>
+              <li>Python</li>
+              <li>Ruby</li>
+              <li>PHP</li>
+              <li>Perl</li>
+              <li>JavaScript</li>
+              <li>C/C++</li>
+              <li>FORTRAN&nbsp;77</li>
+            </ul>
+          </dd>
         </div>
-      </section>
-    </div>
+        <div class="definition long">
+          <dt>Databases</dt>
+          <dd>
+            <ul>
+              <li>PostgreSQL</li>
+              <li>MySQL</li>
+              <li>DynamoDB</li>
+              <li>MongoDB</li>
+            </ul>
+          </dd>
+        </div>
+        <div class=definition>
+          <dt>Web servers</dt>
+          <dd>
+            <ul>
+              <li>Apache</li>
+              <li>Nginx</li>
+            </ul>
+          </dd>
+        </div>
+        <div class=definition>
+          <dt>Operating systems</dt>
+          <dd>
+            <ul>
+              <li>Linux</li>
+              <li>OS X</li>
+            </ul>
+          </dd>
+        </div>
+        <div class="definition long">
+          <dt>Version control systems</dt>
+          <dd>
+            <ul>
+              <li>Git</li>
+              <li>Mercurial</li>
+              <li>Subversion</li>
+            </ul>
+          </dd>
+        </div>
+        <div class="definition long">
+          <dt><em>Et cetera</em></dt>
+          <dd>
+            <ul>
+              <li>Amazon Web Services</li>
+            </ul>
+          </dd>
+        </div>
+      </dl>
+    </section>
+    <section id="education" class="definition-box">
+      <h2>Education</h2>
+      <div class="long">
+        <dl>
+          <dt>University of Chicago</dt>
+          <dd>B.A. Physics <span class="period">June 2006</span></dd>
+        </dl>
+      </div>
+    </section>
   </body>
 </html>
