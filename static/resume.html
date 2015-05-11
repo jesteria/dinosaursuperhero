@@ -103,6 +103,21 @@
         display: inline;
         padding: 1em 1em 1em 0;
       }
+      .break-hint {
+        display: none;
+        font-style: italic;
+        margin-top: 40px;
+        text-align: center;
+      }
+
+      @media print {
+          .break-after {
+            page-break-after: always;
+          }
+          .break-hint {
+            display: block;
+          }
+      }
     </style>
   </head>
   <body>
@@ -117,7 +132,7 @@
       </ul>
     </section>
     <hr>
-    <section id="experience">
+    <section id="experience" class="break-after">
       <h2>Experience</h2>
       <dl>
         <dt>Software Engineer <span class="location">at Edgeflip</span> <span class="period">July 2013 - present</span></dt>
@@ -159,6 +174,8 @@
           <p>Investigated and extended infrastructure, making the department independent of the IT-support services upon which it had previously relied.</p>
         </dd>
       </dl>
+
+      <p class="break-hint">(continued on next page)</p>
     </section>
     <section id="skills" class="definition-box">
       <h2>Skills</h2>
