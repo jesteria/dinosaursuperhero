@@ -2,7 +2,7 @@
   <head>
     <meta charset="utf-8">
     <title>Jesse London</title>
-    <meta name="description" content="The curriculum vitae of Jesse London">
+    <meta name="description" content="The resume of Jesse London">
     <style type="text/css">
       body {
         font-family: Cambria, Georgia, "Times New Roman", Times, serif;
@@ -16,7 +16,7 @@
       h1 {
         font-size: 2em;
         font-variant: small-caps;
-        letter-spacing: 0.05em;
+        letter-spacing: 0.03em;
         text-align: center;
       }
       h2 {
@@ -39,10 +39,10 @@
         margin-bottom: 0;
       }
       #head p {
-        text-align: justify;
+        text-align: center;
         font-style: italic;
-        margin-left: 2em;
-        margin-right: 2em;
+        margin-left: 3em;
+        margin-right: 3em;
       }
       #head ul {
         margin: auto;
@@ -106,16 +106,23 @@
       .break-hint {
         display: none;
         font-style: italic;
-        margin-top: 40px;
         text-align: center;
       }
 
       @media print {
-          .break-after {
-            page-break-after: always;
+          @page {
+            margin-top: 5mm;
+            margin-bottom: 5mm;
+          }
+          @page :first {
+            margin-top: 0;
           }
           .break-hint {
             display: block;
+            margin-top: 5mm;
+          }
+          .break-after {
+            page-break-after: always;
           }
       }
     </style>
@@ -124,7 +131,7 @@
     <section id="head">
       <h1>Jesse London</h1>
       <p>
-          A software engineer with a strong background in Pythonic Web development, data modeling, server infrastructure and test automation seeking technological challenges requiring thoughtful innovation.
+          A software engineer with a strong background in Pythonic software development, data modeling, service architecture, server infrastructure and test automation, seeking technological challenges requiring thoughtful innovation.
       </p>
       <ul id="contact">
         <li><strong>e:</strong> jesse.london@gmail.com</li>
@@ -135,29 +142,51 @@
     <section id="experience" class="break-after">
       <h2>Experience</h2>
       <dl>
-        <dt>Software Engineer <span class="location">at Edgeflip</span> <span class="period">July 2013 - present</span></dt>
+        <dt>Software Engineer <span class="location">at KnowledgeHound</span> <span class="period">June 2015 - present</span></dt>
         <dd>
           <p>
-           Developed and scaled a real-time, social media-based message-targeting platform, which helped supporters of a cause to enlist their friends according to desirable attributes and interests, and which provided cause-based organizations novel insights about their supporters (Python/&#8203;Django/&#8203;MySQL/&#8203;DynamoDB).
+            Extended, scaled and refactored a monolith-designed platform (PHP, MongoDB) into a service-oriented architecture (Python/Django, PostgreSQL, Elasticsearch), providing search and analysis of consumer research data (SPSS).
           </p>
           <p>
-            Prototyped a high-level platform for the analysis, engagement and growth of organizations' social media audiences (Python/&#8203;Flask/&#8203;ElasticSearch/&#8203;MongoDB).
+            Contributed nearly as much to the front-end software (AngularJS) &ndash; from Web browser compatibility to data visualization &ndash; as to data ETL and analysis (R, Python/Pandas). Managed and developed AWS-based infrastructure (Chef, Terraform).
           </p>
           <p>
-            Filled any (and sometimes all) engineering roles, also including infrastructure management (AWS), DevOps (Fabric/Puppet), management of contractors, project management and team leadership.
+            Championed code review, testing, reusability and technological roadmapping, as well as mutual transparency &amp; accountability through the use of light-weight tools and processes.
           </p>
         </dd>
-      </dl> 
-      <dl>
+        <dt>Software Engineer <span class="location">at Edgeflip</span> <span class="period">July 2013 - May 2015</span></dt>
+        <dd>
+          <p>
+           Developed and scaled a real-time, social media-based message-targeting platform, which helped supporters of a cause to enlist their friends according to desirable attributes and interests, and which provided cause-based organizations novel insights about their supporters (Python/Django, MySQL, DynamoDB).
+          </p>
+          <p>
+            Prototyped a high-level platform for the analysis, engagement and growth of organizations' social media audiences (Python/Flask, Elasticsearch, MongoDB, Docker).
+          </p>
+          <p>
+            Filled various engineering roles, also including infrastructure management (AWS), DevOps (Fabric, Puppet), and cooperative project management.
+          </p>
+        </dd>
         <dt>Software Engineer <span class="location">at Analyte Health</span> <span class="period">May 2011 - July 2013</span></dt>
         <dd>
-          <p>Developed a medical and commercial Web platform, requiring a high level of internal and external integration, high availability and conformity, careful review and testing, and rapid bug address (Python/Django/MySQL). Led and co-led solutions to long-standing architectural issues, and championed code review and coding standards (reusability, legibility &amp; DRY).</p>
-          <p>Designed and developed a medical diagnostic rule engine, encoding doctors' decision-making process and CDC guidelines (Python).</p>
-          <p>Participated in a cooperative, Agile team, producing weekly releases. Helped to improve process through code review and automation (<em>e.g.</em> of deployment, via Fabric).</p>
+          <p>
+            Developed a medical and commercial Web platform, requiring a high level of internal and external integration, high availability and conformity, careful review and testing, and rapid bug address (Python/Django, MySQL).
+          </p>
+          <p>
+            Participated in a cooperative, Agile team, producing weekly releases.
+          </p>
+          <p>
+            Led and co-led solutions to long-standing architectural issues, and championed code review and coding standards (reusability, legibility &amp; DRY). Helped to improve process through automation (<em>e.g.</em> of deployment, via Fabric).
+          </p>
+          <p>Designed and developed a medical diagnostic rules engine, encoding doctors' decision-making process and CDC guidelines (Python).</p>
         </dd>
         <dt>Software Engineer <span class="location">at Leapfrog Online</span> <span class="period">Dec 2010 - May 2011</span></dt>
         <dd>
-          <p>Developed customer-facing Web platforms and internal software related to direct marketing, as well as a shared technological infrastructure (Python/Django/PostgreSQL). Participated in a cooperative, Agile team, practicing peer review and multi-tiered automated testing.</p>
+          <p>
+            Developed customer-facing Web platforms and internal software related to direct marketing, as well as a shared technological infrastructure (Python/Django, PostgreSQL).
+          </p>
+          <p>
+            Participated in a cooperative, Agile team, practicing code review and multi-tiered automated testing.
+          </p>
         </dd>
         <dt>Test Engineer <span class="location">at Leapfrog Online</span> <span class="period">Feb 2008 - Dec 2010</span></dt>
         <dd>
@@ -166,11 +195,11 @@
         </dd>
         <dt>Web Developer <span class="period">Jun 2006 - Jan 2008</span></dt>
         <dd>
-          <p>Designed and implemented Web sites for various professionals and organizations in the health services industry (PHP/MySQL/JavaScript).</p>
+          <p>Designed and implemented Web sites for various professionals and organizations in the health services industry (PHP, MySQL, JavaScript).</p>
         </dd>
         <dt>Linux Administrator <span class="location">at University of Chicago Press (BiblioVault)</span> <span class="period">Oct 2006 - Aug 2007</span></dt>
         <dd>
-          <p>Responsible for LAMP Web servers (Debian running Apache, Embperl, MySQL, SSH, Samba, NFS and FTP) in support of the Web frontend and production backend of an academic electronic-publishing and -storage service.</p>
+          <p>Responsible for LAMP Web servers (Debian running Apache, Embperl, MySQL, SSH, Samba, NFS &amp; FTP) in support of the Web front-end and production back-end of an academic electronic-publishing and -storage service.</p>
           <p>Investigated and extended infrastructure, making the department independent of the IT-support services upon which it had previously relied.</p>
         </dd>
       </dl>
@@ -185,23 +214,24 @@
           <dd>
             <ul>
               <li>Python</li>
+              <li>JavaScript</li>
               <li>Ruby</li>
               <li>PHP</li>
               <li>Perl</li>
-              <li>JavaScript</li>
               <li>C/C++</li>
               <li>FORTRAN&nbsp;77</li>
             </ul>
           </dd>
         </div>
         <div class="definition long">
-          <dt>Databases</dt>
+          <dt>Datastores</dt>
           <dd>
             <ul>
               <li>PostgreSQL</li>
               <li>MySQL</li>
               <li>DynamoDB</li>
               <li>MongoDB</li>
+              <li>Elasticsearch</li>
             </ul>
           </dd>
         </div>
