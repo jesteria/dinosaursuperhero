@@ -3,14 +3,21 @@
     <meta charset="utf-8">
     <title>Jesse London</title>
     <meta name="description" content="The resume of Jesse London">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/brands.css" integrity="sha384-i2PyM6FMpVnxjRPi0KW/xIS7hkeSznkllv+Hx/MtYDaHA5VcF0yL3KVlvzp8bWjQ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/fontawesome.css" integrity="sha384-sri+NftO+0hcisDKgr287Y/1LVnInHJ1l+XC7+FOabmTTIK0HnE2ID+xxvJ21c5J" crossorigin="anonymous">
+
     <style type="text/css">
       body {
         font-family: Cambria, Georgia, "Times New Roman", Times, serif;
         margin: auto;
         width: 960px;
       }
-      section {
-        max-width: 90%;
+      a:link, a:visited {
+        color: black;
+      }
+      section, footer {
+        max-width: 93%;
         margin: 1em auto;
       }
       h1 {
@@ -74,7 +81,7 @@
         padding-bottom: 0;
       }
       .definition-box .definition {
-        display: inline-block;
+        display: inline-grid;
         margin-right: 1em;
         width: 46%;
       }
@@ -103,15 +110,24 @@
         display: inline;
         padding: 1em 1em 1em 0;
       }
+
+      #links p {
+        margin: 0.25em 0 0.5em 0;
+      }
+
       .break-hint {
         display: none;
         font-style: italic;
         text-align: center;
       }
 
+      .print-only {
+        display: none;
+      }
+
       @media print {
           @page {
-            margin-top: 5mm;
+            margin-top: 10mm;
             margin-bottom: 5mm;
           }
           @page :first {
@@ -124,8 +140,100 @@
           .break-after {
             page-break-after: always;
           }
+          .print-only {
+            display: inline;
+          }
+          footer.print-only {
+            display: block;
+          }
       }
     </style>
+
+    <script type="text/javascript">
+      window.document.addEventListener('DOMContentLoaded', function () {
+        /*  open rel=external links in new tab/window
+        */
+
+        function openExternal (event) {
+          var href = event.currentTarget.href;
+          if (href) window.open(href);
+          event.preventDefault();
+        }
+
+        window.document.querySelectorAll('a[href][rel=external]').forEach(
+          function (anchor) {
+            anchor.addEventListener('click', openExternal);
+          }
+        );
+      });
+
+      window.document.addEventListener('DOMContentLoaded', function () {
+        /* generate print-only endnotes
+        */
+        var links = [],
+            labels = new Map();
+
+        window.document.querySelectorAll('a[href][class=print-note]').forEach(
+          function (anchor) {
+            var href = anchor.href,
+                footNumber;
+
+            if (! href) return;
+
+            footNumber = links.indexOf(href) + 1;
+
+            if (footNumber === 0) {
+              links.push(href);
+              footNumber = links.length;
+
+              labels.set(href, new Set());
+            }
+
+            labels.get(href).add(anchor.innerHTML);
+
+            anchor.insertAdjacentHTML('afterend', '<sup class="print-only">' + footNumber + '</sup>');
+          }
+        );
+
+        var footer = window.document.createElement('footer'),
+            heading = window.document.createElement('h2'),
+            listing = window.document.createElement('dl');
+
+        footer.id = 'links';
+        footer.className = 'print-only';
+        footer.appendChild(heading);
+        footer.appendChild(listing);
+
+        heading.innerText = 'Links';
+
+        listing.style['display'] = 'grid';
+        listing.style['grid-auto-flow'] = 'column';
+        listing.style['grid-template-rows'] = 'repeat(' + Math.ceil(links.length / 2) + ', 1fr)';
+
+        links.forEach(function (link, index) {
+          var itemWrapper = window.document.createElement('div'),
+              itemTerm = window.document.createElement('dt'),
+              itemDef = window.document.createElement('dd'),
+              itemContent = window.document.createElement('p'),
+              linkLabels = labels.get(link),
+              itemLabel = '';
+
+          linkLabels.forEach(function (linkLabel) {
+            if (itemLabel) itemLabel += ', ';
+            itemLabel += linkLabel;
+          });
+
+          itemTerm.innerHTML = index + 1 + '. ' + itemLabel;
+          itemContent.innerText = link;
+          itemDef.appendChild(itemContent);
+          itemWrapper.appendChild(itemTerm);
+          itemWrapper.appendChild(itemDef);
+          listing.appendChild(itemWrapper);
+        });
+
+        window.document.body.appendChild(footer);
+      });
+    </script>
   </head>
   <body>
     <section id="head">
@@ -139,16 +247,24 @@
       </ul>
     </section>
     <hr>
-    <section id="experience" class="break-after">
+    <section id="experience">
       <h2>Experience</h2>
       <dl>
-        <dt>Software Engineer <span class="location">at KnowledgeHound</span> <span class="period">June 2015 - present</span></dt>
+        <dt>Software Engineer <span class="location">at University of Chicago</span> <span class="period">October 2017 - present</span></dt>
+        <dd>
+          <p>Contributed to the data science software toolset and infrastructure of the <a class="print-note" rel="external" href="https://dsapp.uchicago.edu/">Center for Data Science &amp; Public Policy</a>, including a predictive modeling tool for early warning and resource prioritization problems, <a class="print-note" rel="external" href="https://github.com/dssg/triage">Triage</a>, and a machine learning bias-auditing tool, <a class="print-note" rel="external" href="https://github.com/dssg/aequitas">Aequitas</a> (Python/pandas/scikit-learn, PostgreSQL).</p>
+          <p>Authored general-purpose supporting tools, including a command-line interface library, <a class="print-note" rel="external" href="https://github.com/dssg/argcmdr">argcmdr</a>, and an I/O interfaces and optimization library, <a class="print-note" rel="external" href="https://github.com/dssg/ohio">Ohio</a> (Python).</p>
+          <p>Maintained and extended cloud-based infrastructure (AWS) and pipelines (Python/argcmdr, Ansible).</p>
+          <p>Contributed to the development of the <a class="print-note" rel="external" href="https://solveforgood.org/">solveforgood.org</a> social good technology-volunteering platform (Python/Django, <a class="print-note" rel="external" href="https://github.com/dssg/marketplace"><i class="fab fa-github"></i></a>).</p>
+          <p>Developed the lightweight application-review Web app, <a class="print-note" rel="external" href="https://github.com/dssg/appy-reviews">Appy</a>, for crowdsourced review of applications to the <a class="print-note" rel="external" href="https://dssg.uchicago.edu/">Data Science for Social Good Fellowship</a> (Python/Django).
+        </dd>
+        <dt>Software Engineer <span class="location">at KnowledgeHound</span> <span class="period">June 2015 - October 2017</span></dt>
         <dd>
           <p>
             Extended, scaled and refactored a monolith-designed platform (PHP, MongoDB) into a service-oriented architecture (Python/Django, PostgreSQL, Elasticsearch), providing search and analysis of consumer research data (SPSS).
           </p>
           <p>
-            Contributed nearly as much to the front-end software (AngularJS) &ndash; from Web browser compatibility to data visualization &ndash; as to data ETL and analysis (R, Python/Pandas). Managed and developed AWS-based infrastructure (Chef, Terraform).
+            Contributed nearly as much to the front-end software (AngularJS) &ndash; from Web browser compatibility to data visualization &ndash; as to data ETL and analysis (R, Python/pandas). Managed and developed AWS-based infrastructure (Chef, Terraform).
           </p>
           <p>
             Championed code review, testing, reusability and technological roadmapping, as well as mutual transparency &amp; accountability through the use of light-weight tools and processes.
@@ -167,17 +283,20 @@
           </p>
         </dd>
         <dt>Software Engineer <span class="location">at Analyte Health</span> <span class="period">May 2011 - July 2013</span></dt>
-        <dd>
+        <dd class="break-after">
           <p>
             Developed a medical and commercial Web platform, requiring a high level of internal and external integration, high availability and conformity, careful review and testing, and rapid bug address (Python/Django, MySQL).
           </p>
+          <p>Designed and developed a medical diagnostic rules engine, encoding doctors' decision-making process and CDC guidelines (Python).</p>
+          <p>Contributed to U.S. patents: <em>System for Coordinating Healthcare Services</em>, <em>System and Method For Coordinating Administration of a Medical Test to a User</em>, <em>System and Method for Coordinating Payment for Healthcare Services</em>, and <em>System and Method for Reporting of Medical Advice</em> (2013).</p>
           <p>
             Participated in a cooperative, Agile team, producing weekly releases.
           </p>
           <p>
-            Led and co-led solutions to long-standing architectural issues, and championed code review and coding standards (reusability, legibility &amp; DRY). Helped to improve process through automation (<em>e.g.</em> of deployment, via Fabric).
+            Led and co-led solutions to long-standing architectural issues, and championed code review and coding standards (reusability, legibility &amp; DRY). Helped to improve process through automation (such as deployment via Fabric).
           </p>
-          <p>Designed and developed a medical diagnostic rules engine, encoding doctors' decision-making process and CDC guidelines (Python).</p>
+
+          <p class="break-hint">(continued on next page)</p>
         </dd>
         <dt>Software Engineer <span class="location">at Leapfrog Online</span> <span class="period">Dec 2010 - May 2011</span></dt>
         <dd>
@@ -203,8 +322,6 @@
           <p>Investigated and extended infrastructure, making the department independent of the IT-support services upon which it had previously relied.</p>
         </dd>
       </dl>
-
-      <p class="break-hint">(continued on next page)</p>
     </section>
     <section id="skills" class="definition-box">
       <h2>Skills</h2>
@@ -215,8 +332,8 @@
             <ul>
               <li>Python</li>
               <li>JavaScript</li>
-              <li>Ruby</li>
               <li>PHP</li>
+              <li>Ruby</li>
               <li>Perl</li>
               <li>C/C++</li>
               <li>FORTRAN&nbsp;77</li>
@@ -235,39 +352,24 @@
             </ul>
           </dd>
         </div>
-        <div class=definition>
-          <dt>Web servers</dt>
+        <div class="definition long">
+          <dt>Toolsets &amp; frameworks</dt>
           <dd>
             <ul>
-              <li>Apache</li>
-              <li>Nginx</li>
-            </ul>
-          </dd>
-        </div>
-        <div class=definition>
-          <dt>Operating systems</dt>
-          <dd>
-            <ul>
-              <li>Linux</li>
-              <li>OS X</li>
+              <li>Docker</li>
+              <li>pandas</li>
+              <li>Django</li>
+              <li>Flask</li>
+              <li>SQLAlchemy</li>
             </ul>
           </dd>
         </div>
         <div class="definition long">
-          <dt>Version control systems</dt>
-          <dd>
-            <ul>
-              <li>Git</li>
-              <li>Mercurial</li>
-              <li>Subversion</li>
-            </ul>
-          </dd>
-        </div>
-        <div class="definition long">
-          <dt><em>Et cetera</em></dt>
+          <dt>Cloud service providers</dt>
           <dd>
             <ul>
               <li>Amazon Web Services</li>
+              <li>Google Cloud</li>
             </ul>
           </dd>
         </div>
