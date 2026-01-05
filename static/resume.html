@@ -2,7 +2,7 @@
   <head>
     <meta charset="utf-8">
     <title>Jesse London</title>
-    <meta name="description" content="The resume of Jesse London">
+    <meta name="description" content="The résumé of Jesse London">
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/brands.css" integrity="sha384-i2PyM6FMpVnxjRPi0KW/xIS7hkeSznkllv+Hx/MtYDaHA5VcF0yL3KVlvzp8bWjQ" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/fontawesome.css" integrity="sha384-sri+NftO+0hcisDKgr287Y/1LVnInHJ1l+XC7+FOabmTTIK0HnE2ID+xxvJ21c5J" crossorigin="anonymous">
@@ -18,13 +18,14 @@
       }
       section, footer {
         max-width: 93%;
-        margin: 1em auto;
+        margin: 1.5em auto;
       }
       h1 {
-        font-size: 2em;
+        font-size: 3em;
         font-variant: small-caps;
-        letter-spacing: 0.03em;
+        letter-spacing: 0.04em;
         text-align: center;
+        margin: 0.6em 0 0.4em 0;
       }
       h2 {
         font-size: 1.25em;
@@ -48,11 +49,10 @@
       #head p {
         text-align: center;
         font-style: italic;
-        margin-left: 3em;
-        margin-right: 3em;
+        margin: 0.2em 4.2em;
       }
       #head ul {
-        margin: auto;
+        margin: 0.2em auto 0.7em;
         max-width: 65%;
         padding: 1em 0 1.5em;
       }
@@ -82,8 +82,8 @@
       }
       .definition-box .definition {
         display: inline-grid;
-        margin-right: 1em;
-        width: 46%;
+        margin-right: 4%;
+        width: 45%;
       }
       .definition-box dt, .definition-box dd {
         display: inline;
@@ -115,12 +115,6 @@
         margin: 0.25em 0 0.5em 0;
       }
 
-      .break-hint {
-        display: none;
-        font-style: italic;
-        text-align: center;
-      }
-
       .print-only {
         display: none;
       }
@@ -131,20 +125,44 @@
             margin-bottom: 5mm;
           }
           @page :first {
-            margin-top: 0;
+            margin-top: 7mm;
           }
-          .break-hint {
-            display: block;
-            margin-top: 5mm;
+          .no-break {
+              break-inside: avoid;
           }
-          .break-after {
-            page-break-after: always;
+          .no-break-after {
+              break-after: avoid;
+          }
+          .break-hint::after {
+              content: "(continued on next page)";
+              display: block;
+              font-size: smaller;
+              font-style: italic;
+              text-align: center;
+              width: 100%;
+              margin: 2em 0 0 0;
+          }
+          dd.break-hint::after {
+              margin-left: -2em;
           }
           .print-only {
             display: inline;
           }
           footer.print-only {
             display: block;
+          }
+          h1 {
+            font-size: 4em;
+            margin: 0 0 0.4em 0;
+          }
+          p {
+            margin: 0.5em 0 0.75em 0;
+          }
+          section {
+            margin: 1.5em auto 2.5em auto;
+          }
+          #head {
+            margin-top: 0;
           }
       }
     </style>
@@ -200,7 +218,7 @@
             listing = window.document.createElement('dl');
 
         footer.id = 'links';
-        footer.className = 'print-only';
+        footer.className = 'print-only no-break';
         footer.appendChild(heading);
         footer.appendChild(listing);
 
@@ -239,7 +257,7 @@
     <section id="head">
       <h1>Jesse London</h1>
       <p>
-          A software engineer with a strong background in Pythonic software development, data modeling, service architecture, server infrastructure and test automation, seeking technological challenges requiring thoughtful innovation.
+          A software engineer with expertise including Python, data modeling, service architecture, server infrastructure, test automation and user &amp; system interfaces, seeking technological challenges requiring thoughtful innovation.
       </p>
       <ul id="contact">
         <li><strong>e:</strong> jesse.london@gmail.com</li>
@@ -250,16 +268,20 @@
     <section id="experience">
       <h2>Experience</h2>
       <dl>
-        <dt>Software Engineer <span class="location">at University of Chicago</span> <span class="period">October 2017 - present</span></dt>
-        <dd>
+        <dt class="no-break-after">Software Engineer <span class="location">at University of Chicago</span> <span class="period">October 2017 - present</span></dt>
+        <dd class="no-break">
+          <p>Enabled the research of the <a class="print-note" rel="external" href="https://internetequity.org/">Internet Innovation Initiative</a> (Internet Equity Initiative), developing the <a class="print-note" rel="external" href="https://github.com/internet-innovation/netrics">Netrics</a> measurement framework and its participant-facing <a class="print-note" rel="external" href="https://github.com/internet-innovation/netrics-dash">Dashboard</a>, as well as contributing to its deployment via the <a class="print-note" rel="external" href="https://floto.cs.uchicago.edu/">FLOTO</a> platform, contributing to measurement research efforts such as <a class="print-note" rel="external" href="https://github.com/internet-innovation/traceneck">Traceneck</a>, and maintaining data-analysis pipelines (Python, Go, Kubernetes, PostgreSQL, InfluxDB, AWS). Implemented custom Internet "speed" testing at "edge" (AWS).</p>
+          <p>Co-authored network data-focused machine learning tools <a class="print-note" rel="external" href="https://github.com/noise-lab/netml">NetML</a> &amp; <a class="print-note" rel="external" href="https://github.com/nprint/nprintml">nPrintML</a> (Python/pandas/scikit-learn/AutoGluon).</p>
+          <p>Contributed to data science curricula including the <a class="print-note" rel="external" href="https://datascience.uchicago.edu/outreach/data4all/">Data4All High School Bridge Workshop</a> and <a class="print-note" rel="external" href="https://ds1.datascience.uchicago.edu/">The Chicago Guide to Data Science</a> online text.</p>
+          <p>Provisioned and maintained JupyterHub services for data science class work (Kubernetes).</p>
           <p>Contributed to the data science software toolset and infrastructure of the <a class="print-note" rel="external" href="https://dsapp.uchicago.edu/">Center for Data Science &amp; Public Policy</a>, including a predictive modeling tool for early warning and resource prioritization problems, <a class="print-note" rel="external" href="https://github.com/dssg/triage">Triage</a>, and a machine learning bias-auditing tool, <a class="print-note" rel="external" href="https://github.com/dssg/aequitas">Aequitas</a> (Python/pandas/scikit-learn, PostgreSQL).</p>
           <p>Authored general-purpose supporting tools, including a command-line interface library, <a class="print-note" rel="external" href="https://github.com/dssg/argcmdr">argcmdr</a>, and an I/O interfaces and optimization library, <a class="print-note" rel="external" href="https://github.com/dssg/ohio">Ohio</a> (Python).</p>
           <p>Maintained and extended cloud-based infrastructure (AWS) and pipelines (Python/argcmdr, Ansible).</p>
           <p>Contributed to the development of the <a rel="external" href="https://solveforgood.org/">solveforgood.org</a> social good technology-volunteering platform (Python/Django, <a class="print-note" rel="external" href="https://github.com/dssg/marketplace"><i class="fab fa-github"></i></a>).</p>
           <p>Developed the lightweight application-review Web app, <a class="print-note" rel="external" href="https://github.com/dssg/appy-reviews">Appy</a>, for crowdsourced review of applications to the <a class="print-note" rel="external" href="https://dssg.uchicago.edu/">Data Science for Social Good Fellowship</a> (Python/Django).
         </dd>
-        <dt>Software Engineer <span class="location">at KnowledgeHound</span> <span class="period">June 2015 - October 2017</span></dt>
-        <dd>
+        <dt class="no-break-after">Software Engineer <span class="location">at KnowledgeHound</span> <span class="period">June 2015 - October 2017</span></dt>
+        <dd class="no-break">
           <p>
             Extended, scaled and refactored a monolith-designed platform (PHP, MongoDB) into a service-oriented architecture (Python/Django, PostgreSQL, Elasticsearch), providing search and analysis of consumer research data (SPSS).
           </p>
@@ -270,8 +292,8 @@
             Championed code review, testing, reusability and technological roadmapping, as well as mutual transparency &amp; accountability through the use of light-weight tools and processes.
           </p>
         </dd>
-        <dt>Software Engineer <span class="location">at Edgeflip</span> <span class="period">July 2013 - May 2015</span></dt>
-        <dd>
+        <dt class="no-break-after">Software Engineer <span class="location">at Edgeflip</span> <span class="period">July 2013 - May 2015</span></dt>
+        <dd class="no-break break-hint">
           <p>
            Developed and scaled a real-time, social media-based message-targeting platform, which helped supporters of a cause to enlist their friends according to desirable attributes and interests, and which provided cause-based organizations novel insights about their supporters (Python/Django, MySQL, DynamoDB).
           </p>
@@ -282,8 +304,8 @@
             Filled various engineering roles, also including infrastructure management (AWS), DevOps (Fabric, Puppet), and cooperative project management.
           </p>
         </dd>
-        <dt>Software Engineer <span class="location">at Analyte Health</span> <span class="period">May 2011 - July 2013</span></dt>
-        <dd class="break-after">
+        <dt class="no-break-after">Software Engineer <span class="location">at Analyte Health</span> <span class="period">May 2011 - July 2013</span></dt>
+        <dd class="no-break">
           <p>
             Developed a medical and commercial Web platform, requiring a high level of internal and external integration, high availability and conformity, careful review and testing, and rapid bug address (Python/Django, MySQL).
           </p>
@@ -295,11 +317,9 @@
           <p>
             Led and co-led solutions to long-standing architectural issues, and championed code review and coding standards (reusability, legibility &amp; DRY). Helped to improve process through automation (such as deployment via Fabric).
           </p>
-
-          <p class="break-hint">(continued on next page)</p>
         </dd>
-        <dt>Software Engineer <span class="location">at Leapfrog Online</span> <span class="period">Dec 2010 - May 2011</span></dt>
-        <dd>
+        <dt class="no-break-after">Software Engineer <span class="location">at Leapfrog Online</span> <span class="period">Dec 2010 - May 2011</span></dt>
+        <dd class="no-break">
           <p>
             Developed customer-facing Web platforms and internal software related to direct marketing, as well as a shared technological infrastructure (Python/Django, PostgreSQL).
           </p>
@@ -307,23 +327,23 @@
             Participated in a cooperative, Agile team, practicing code review and multi-tiered automated testing.
           </p>
         </dd>
-        <dt>Test Engineer <span class="location">at Leapfrog Online</span> <span class="period">Feb 2008 - Dec 2010</span></dt>
-        <dd>
+        <dt class="no-break-after">Test Engineer <span class="location">at Leapfrog Online</span> <span class="period">Feb 2008 - Dec 2010</span></dt>
+        <dd class="no-break">
           <p>Designed and developed automated, functional test suites for Web platforms related to direct marketing (Python). Participated in the cooperative development of direct marketing platforms and their technological infrastructure (Python/Django).</p>
           <p>Responsible for quality assurance, product release control, and helping to ensure live product uptime.</p>
         </dd>
-        <dt>Web Developer <span class="period">Jun 2006 - Jan 2008</span></dt>
-        <dd>
+        <dt class="no-break-after">Web Developer <span class="period">Jun 2006 - Jan 2008</span></dt>
+        <dd class="no-break">
           <p>Designed and implemented Web sites for various professionals and organizations in the health services industry (PHP, MySQL, JavaScript).</p>
         </dd>
-        <dt>Linux Administrator <span class="location">at University of Chicago Press (BiblioVault)</span> <span class="period">Oct 2006 - Aug 2007</span></dt>
-        <dd>
+        <dt class="no-break-after">Linux Administrator <span class="location">at University of Chicago Press (BiblioVault)</span> <span class="period">Oct 2006 - Aug 2007</span></dt>
+        <dd class="no-break">
           <p>Responsible for LAMP Web servers (Debian running Apache, Embperl, MySQL, SSH, Samba, NFS &amp; FTP) in support of the Web front-end and production back-end of an academic electronic-publishing and -storage service.</p>
           <p>Investigated and extended infrastructure, making the department independent of the IT-support services upon which it had previously relied.</p>
         </dd>
       </dl>
     </section>
-    <section id="skills" class="definition-box">
+    <section id="skills" class="definition-box no-break">
       <h2>Skills</h2>
       <dl>
         <div class="definition long">
@@ -331,6 +351,7 @@
           <dd>
             <ul>
               <li>Python</li>
+              <li>Go</li>
               <li>JavaScript</li>
               <li>PHP</li>
               <li>Ruby</li>
@@ -346,6 +367,7 @@
             <ul>
               <li>PostgreSQL</li>
               <li>MySQL</li>
+              <li>InfluxDB</li>
               <li>DynamoDB</li>
               <li>MongoDB</li>
               <li>Elasticsearch</li>
@@ -357,6 +379,7 @@
           <dd>
             <ul>
               <li>Docker</li>
+              <li>Kubernetes</li>
               <li>pandas</li>
               <li>Django</li>
               <li>Flask</li>
@@ -375,7 +398,7 @@
         </div>
       </dl>
     </section>
-    <section id="education" class="definition-box">
+    <section id="education" class="definition-box no-break break-hint">
       <h2>Education</h2>
       <div class="long">
         <dl>
