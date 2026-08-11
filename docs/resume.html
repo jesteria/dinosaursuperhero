@@ -4,12 +4,18 @@
     <title>Jesse London</title>
     <meta name="description" content="The résumé of Jesse London">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/brands.css" integrity="sha384-i2PyM6FMpVnxjRPi0KW/xIS7hkeSznkllv+Hx/MtYDaHA5VcF0yL3KVlvzp8bWjQ" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/fontawesome.css" integrity="sha384-sri+NftO+0hcisDKgr287Y/1LVnInHJ1l+XC7+FOabmTTIK0HnE2ID+xxvJ21c5J" crossorigin="anonymous">
 
     <style type="text/css">
       body {
-        font-family: Cambria, Georgia, "Times New Roman", Times, serif;
+        font-family: Bitter, serif;
+        font-optical-sizing: auto;
+        font-size: 15px;
         margin: auto;
         width: 960px;
       }
@@ -18,22 +24,32 @@
       }
       section, footer {
         max-width: 93%;
-        margin: 1.5em auto;
+        margin: 1.5em auto 2em auto;
       }
       h1 {
-        font-size: 3em;
+        font-family: "Open Sans", sans-serif;
+        font-size: 4.5em;
         font-variant: small-caps;
-        letter-spacing: 0.04em;
+        letter-spacing: 0.8px;
         text-align: center;
-        margin: 0.6em 0 0.4em 0;
+        margin: 0 0 0.2em 0;
       }
       h2 {
-        font-size: 1.25em;
+        font-family: 'source sans 3', sans-serif;
+        font-size: 1.9em;
+        margin-bottom: 0.35em;
+        margin-top: 0.5em;
+      }
+      dl {
+          margin-top: 0.7em;
+          margin-bottom: 0.7em;
       }
       dl, dd {
-        margin-left: 2em;
+        margin-left: 1em;
       }
       dt {
+        font-family: 'Source Sans 3', sans-serif;
+        font-size: 1.2em;
         font-weight: bold;
       }
       p {
@@ -47,68 +63,71 @@
         margin-bottom: 0;
       }
       #head p {
-        text-align: center;
-        font-style: italic;
-        margin: 0.2em 4.2em;
+        text-align: justify;
+        letter-spacing: 0.11px;
+        line-height: 1.2;
+        font-size: 18px;
+        margin: 0.2em 5.2em;
       }
       #head ul {
-        margin: 0.2em auto 0.7em;
-        max-width: 65%;
-        padding: 1em 0 1.5em;
+        margin: 1em auto 0.9em;
+        padding: 0;
+        text-align: center;
       }
       #head li {
-        display: inline;
-        float: left;
+        display: inline-block;
+        margin: 0 6em;
       }
-      #head li:last-child {
-        float: right;
+      #contact {
+          font-size: 16px;
       }
       #experience .period {
         font-weight: normal;
-        padding-left: 0.5em;
+        padding-left: 0.275em;
+        font-size: 0.98em;
       }
       #experience .location {
         font-weight: normal;
-        padding-left: 0.25em;
+        padding-left: 0.15em;
       }
       #experience p {
-        padding-right: 10%;
+        padding-right: 2em;
+        line-height: 1.4;
+        text-align: justify;
       }
       #experience dd {
-        padding-bottom: 0.5em;
+        padding-bottom: 0.75em;
       }
       #experience dd:last-child {
         padding-bottom: 0;
       }
-      .definition-box .definition {
-        display: inline-grid;
-        margin-right: 4%;
-        width: 45%;
+      .definition-box > dl {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.3em;
       }
       .definition-box dt, .definition-box dd {
         display: inline;
       }
       .definition-box .long dt {
         display: block;
-        padding: 0 0 0.25em;
+        padding: 0 0 0.35em;
       }
       .definition-box .long dd {
         display: block;
         margin-left: 1.5em;
-      }
-      .definition-box div {
-        padding-bottom: 0.75em;
       }
       .definition-box ul {
         display: inline;
         padding-left: 0em;
         margin-top: 0.3em;
         margin-bottom: 0.75em;
-        font-family: courier, "courier new", monospace;
+        font-family: "Source Code Pro", monospace;
       }
       .definition-box li {
         display: inline;
         padding: 1em 1em 1em 0;
+        line-height: 1.5;
       }
 
       #links p {
@@ -121,11 +140,17 @@
 
       @media print {
           @page {
+            size: letter;
             margin-top: 10mm;
-            margin-bottom: 5mm;
+            margin-bottom: 20mm;
+            @bottom-center {
+                content: counter(page) " of " counter(pages);
+                font-family: 'Source Sans 3', sans-serif;
+                color: #999;
+            }
           }
           @page :first {
-            margin-top: 7mm;
+            margin-top: 4mm;
           }
           .no-break {
               break-inside: avoid;
@@ -133,36 +158,20 @@
           .no-break-after {
               break-after: avoid;
           }
-          .break-hint::after {
-              content: "(continued on next page)";
-              display: block;
-              font-size: smaller;
-              font-style: italic;
-              text-align: center;
-              width: 100%;
-              margin: 2em 0 0 0;
-          }
-          dd.break-hint::after {
-              margin-left: -2em;
-          }
           .print-only {
             display: inline;
           }
           footer.print-only {
             display: block;
           }
-          h1 {
-            font-size: 4em;
-            margin: 0 0 0.4em 0;
-          }
-          p {
-            margin: 0.5em 0 0.75em 0;
-          }
-          section {
-            margin: 1.5em auto 2.5em auto;
+          h2 {
+            font-size: 1.75em;
           }
           #head {
             margin-top: 0;
+          }
+          #experience p {
+            line-height: 1.3;
           }
       }
     </style>
@@ -257,7 +266,7 @@
     <section id="head">
       <h1>Jesse London</h1>
       <p>
-          A software engineer with expertise including Python, data modeling, service architecture, server infrastructure, test automation and user &amp; system interfaces, seeking technological challenges requiring thoughtful innovation.
+      A software engineer of 15+ years expertise in Python &amp;c., data collection &amp; modeling, service architecture &amp; server infrastructure, test automation, and human &amp; system interfaces, seeking technological challenges requiring thoughtful innovation.
       </p>
       <ul id="contact">
         <li><strong>e:</strong> jesse.london@gmail.com</li>
@@ -268,7 +277,7 @@
     <section id="experience">
       <h2>Experience</h2>
       <dl>
-        <dt class="no-break-after">Software Engineer <span class="location">at University of Chicago</span> <span class="period">October 2017 - present</span></dt>
+        <dt class="no-break-after">Software Engineer <span class="location">at University of Chicago</span> <span class="period">October 2017 - January 2026</span></dt>
         <dd class="no-break">
           <p>Enabled the research of the <a class="print-note" rel="external" href="https://github.com/internet-innovation">Internet Innovation Initiative</a> (Internet Equity Initiative), developing the <a class="print-note" rel="external" href="https://github.com/internet-innovation/netrics">Netrics</a> measurement framework and its participant-facing <a class="print-note" rel="external" href="https://github.com/internet-innovation/netrics-dash">Dashboard</a>, as well as contributing to its deployment via the <a class="print-note" rel="external" href="https://floto.cs.uchicago.edu/">FLOTO</a> platform, contributing to measurement research efforts such as <a class="print-note" rel="external" href="https://github.com/internet-innovation/traceneck">Traceneck</a>, and maintaining data-analysis pipelines (Python, Go, Kubernetes, PostgreSQL, InfluxDB, AWS). Implemented custom Internet "speed" testing at "edge" (AWS).</p>
           <p>Co-authored network data-focused machine learning tools <a class="print-note" rel="external" href="https://github.com/noise-lab/netml">NetML</a> &amp; <a class="print-note" rel="external" href="https://github.com/nprint/nprintml">nPrintML</a> (Python/pandas/scikit-learn/AutoGluon).</p>
@@ -293,7 +302,7 @@
           </p>
         </dd>
         <dt class="no-break-after">Software Engineer <span class="location">at Edgeflip</span> <span class="period">July 2013 - May 2015</span></dt>
-        <dd class="no-break break-hint">
+        <dd class="no-break">
           <p>
            Developed and scaled a real-time, social media-based message-targeting platform, which helped supporters of a cause to enlist their friends according to desirable attributes and interests, and which provided cause-based organizations novel insights about their supporters (Python/Django, MySQL, DynamoDB).
           </p>
@@ -398,7 +407,7 @@
         </div>
       </dl>
     </section>
-    <section id="education" class="definition-box no-break break-hint">
+    <section id="education" class="definition-box no-break">
       <h2>Education</h2>
       <div class="long">
         <dl>
